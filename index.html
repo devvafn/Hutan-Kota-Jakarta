@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./js/d3.v5.min.js" type="text/javascript"></script>
+<script src="./js/scrollama.min.js" type="text/javascript"></script>
+<title>Hutan Kota di DKI Jakarta</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" id="wp-bootstrap-starter-bootstrap-css-css" href="./css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-bootstrap-starter-style-css" href="./css/style.css" type="text/css" media="all">
+<style>
+		.square::before{
+			content:'';
+			display:block;
+			white-space:normal;
+			max-width:100%;
+			padding-top: 100%;  /* initial ratio of 1:1*/
+		}
+        body {
+            background-color: #FFFFFF;
+        }
+        footer.site-footer{
+            background-color: #181818;
+        }
+</style>
+<style>
+/*MAIN STYLE TEMPLATE*/
+/* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500;700&display=swap'); */
+@import url('./css/scroll.css');
+
+html, body {
+    margin: 0;
+}
+
+.article-container {
+    width: 100%;
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+}
+
+.title-section {
+    width:90%;
+    font-family: 'Noto Sans', sans-serif;
+    max-width: 600px;
+    margin: 3rem auto 5rem auto;
+    text-align: center;
+}
+
+.title-section .title .text h2{
+    font-weight: 700;
+    font-size: 3.1rem;
+    font-f
+    margin: 0 auto 3rem auto;
+}
+
+.title-section .title .text p{
+    font-weight: 300;
+    margin: 0 auto 1.2rem auto;
+    max-width: 700px;
+    line-height: 1.8rem;
+}
+
+.subhead {
+    color: #888;
+}
+
+.subhead2 {
+    color: #777;
+    text-align:center;
+font-weight:bold;
+}
+
+.subhead3 {
+    color: #777;
+    font-size: 1.4em;
+    margin-top: 3rem;
+    text-align: center;
+font-weight:bold;
+}
+
+.mainsubjudul {
+font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    margin: 3rem auto auto auto;
+    text-align: center;
+}
+
+.subtitle {
+    margin: -1rem auto 3rem auto;
+    color: #666;
+    font-size: 1.8rem;
+    line-height: 3rem;
+}
+
+.meta {
+    width:100%;
+    max-width: 600px;
+    margin: 3rem auto 5rem auto;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.body-section {
+    width:90%;
+    max-width: 650px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+.infog-resourcewatch {
+ width: 90% !important;
+    max-width: 650px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+
+.source {
+    width:90%;
+    max-width: 650px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+.article-option {
+    margin:1rem auto 3rem auto;
+    display: flex;
+    justify-content:center;
+    direction:row;
+    align-items: flex-start;
+}
+
+.body-section-division {
+padding-bottom:1rem;
+padding-top:1rem;
+display:flex;
+flex-direction:column;
+justify-content: center;
+}
+
+.button {
+    font-size: 1.5rem;
+    width:50%;
+    height:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    max-width: 450px;
+    max-height: 250px;
+    margin:10px;
+    opacity: 0.5;
+    text-align: center;
+    transition: opacity 400ms;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.button:hover {
+    opacity:1;
+}
+#div2 {
+    background-color: rgba(245, 218, 159, 0.15);
+}
+
+#sosek {
+    color: rgb(187, 155, 85);
+}
+
+#div1 {
+    background-color: rgba(140, 181, 171, 0.15);
+}
+
+#lingkungan{
+    color: rgb(80, 158, 140)
+}
+
+.body-section p{
+    font-size:1.2rem;
+    line-height: 2.1rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.quote-section {
+    width:90%;
+    max-width: 650px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+    box-sizing: content-box;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+.quote-graph {
+    margin:0;
+    display: flex;
+}
+
+.quote-pic {
+    min-width:120px;
+    height:120px;
+    /*background-color: lightcoral;*/
+    border-radius: 50%;
+    position: relative;
+}
+
+.quote-pic img {
+    max-width: 120px;
+    width:100%;
+    height:100%;
+    object-fit: contain;
+}
+
+.pic-bg {
+    width:90%;
+    height:90%;
+    left:5%;
+    top:5%;
+    background-color: #f5da9f;
+    border-radius: 50%;
+    position:absolute;
+    z-index:-1;
+}
+
+.quotes-right {
+    max-width:500px;    
+    display: flex;
+    flex-direction: column;
+    /*background-color: lightpink;*/
+    margin-left: 1.5rem;
+    position: relative;
+}
+
+.quotes-tri {
+    width:0;
+    height:0;
+    position:absolute;
+    border-right: 0.7rem solid #8cb5ab;
+    border-top: 0.7rem solid #8cb5ab;
+    border-left: 0.7rem solid transparent;
+    border-bottom: 0.7rem solid transparent;
+    left:-1.2rem;
+    top: 1rem;
+}
+
+.quotes {
+    padding: 1rem;
+    background-color: #8cb5ab;
+    border-radius: 0.75rem;
+}
+
+.quotes p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.quotes-bold {
+    font-weight: 600;
+}
+
+.quote-name {
+    padding: 0.5rem;
+    /*background-color: lightsteelblue;*/
+    padding-left: 1rem;
+}
+
+.infographic {
+    width: 100%;
+    margin:3rem 0 1rem 0;
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+}
+
+.photograph {
+    width: 100%;
+    margin:3rem auto 0.5rem auto;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+
+.photo {
+    width: 600px;
+
+}
+
+.photo img {
+    width: 100%;
+}
+
+.graphic{
+    margin: 0 auto;
+}
+
+.data-source{
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.6rem;
+    width:100%;
+    margin: 1rem auto 3rem auto;
+    font-weight:400;
+    text-align: left;
+}
+
+.end-credit{
+    color: #888;
+    font-size: 1rem;
+    line-height: 2rem;
+    max-width: 650px;
+    margin: auto;
+    width:90%;
+margin-bottom:2rem;
+}
+
+.profile {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.profile > div {
+    margin:1rem;
+}
+
+.profpic {
+    background-color: rgb(200,200,200);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profname {
+    margin-left: 30px!important;
+}
+
+.name {
+    font-size: 2rem;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 700;
+}
+
+.profile-bar {
+    background-color: rgb(200,200,200);
+    width:100%;
+    height:2px;
+    max-width: 650px;
+    border-radius: 1px;
+}
+
+.section-bar {
+    background-color: rgb(200,200,200);
+    width:90%;
+    height:4px;
+    max-width: 650px;
+    margin: 5rem auto auto auto;
+    border-radius: 2px;
+}
+
+#outro {
+    margin-top: 7rem;
+}
+
+.chartcontainer {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.charttitle {
+    width:80%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin:0 auto auto auto;
+}
+
+.chart {
+    width:400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TOOLTIP */
+.tooltip1 {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    opacity: 1;
+    font-weight:800;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.2rem;
+    text-shadow:
+     -2px -2px 0 #fff,  
+      2px -2px 0 #fff,
+      -2px 2px 0 #fff,
+       2px 2px 0 #fff;
+}
+
+.tooltip2 {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    opacity: 1;
+    font-weight:800;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 1.2rem;
+    text-shadow:
+     -2px -2px 0 #fff,  
+      2px -2px 0 #fff,
+      -2px 2px 0 #fff,
+       2px 2px 0 #fff;
+}
+
+/* MAIN STYLE RESPONSIVE */
+
+@media screen and (max-width: 720px) {
+    .header-img{
+        height:240px;
+    }
+    .title-section .title .text h2 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+    .end-credit{
+        font-size: 0.9rem;
+        line-height: 1.8rem;
+        margin-bottom:2rem;
+    }
+    .data-source{
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+    }
+    .body-section p{
+        font-size:1.1rem;
+        line-height: 1.8rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    }
+    .meta {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .mainsubjudul {
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 2.4rem;
+    }
+
+    .profile {
+        display: flex;
+        width: 100%;
+        margin: auto;
+    }
+    
+    .profile > div {
+        margin:1rem;
+    }
+
+    .profpic {
+        background-color: rgb(200,200,200);
+        width:80px!important;
+        height: 80px!important;
+        border-radius: 50%;
+    }
+    
+    .profname {
+        margin-left: 5px!important;
+    }
+    
+    .name {
+        font-size: 1.2rem;
+        font-family: "Noto Sans", sans-serif;
+        font-weight: 700;
+    }
+
+    .chartcontainer {
+        width:100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .chart {
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tooltip1 {
+        font-size: 1rem;
+        width: 50%;
+    }
+    
+    .tooltip2 {
+        font-size: 1rem;
+        width: 50%;
+    }
+
+
+}
+
+@media screen and (max-width: 689px) {
+
+    .quote-pic {
+        min-width:90px;
+        height:90px;
+    }
+    .quote-pic img {
+        max-width: 90px;
+        width:100%;
+        object-fit: contain;
+    }
+    .article-option{
+        flex-direction: column;
+        align-items: center;
+        max-width:750px;
+        margin:1rem auto auto auto;
+    }
+    .button {
+        font-size: 1.2rem;
+        height:100px;
+        width:90%;
+        max-width:450px;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    .photo {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .photograph {
+        flex-direction: column;
+        
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 509px) {
+    .photo {
+        width: 90%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .photograph {
+        flex-direction: column;
+        
+    }
+
+
+}
+
+@media screen and (min-width: 690px) and (max-width: 919px) {
+    .photo {
+        width: 33%;
+    }
+
+    .photograph {
+        justify-content: center;
+        
+    }
+}
+
+@media screen and (min-width: 920px) and (max-width: 1399px) {
+    .photo {
+        width: 33%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .photo {
+        width: 33%;
+    }
+}
+#scrolly-1 {
+    margin-top: 5rem;
+    position: relative;
+  	}
+
+#scrolly-2 {
+	position: relative;
+	}
+
+.scroll-article {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    -webkit-transform: translate3d(0, 0, 1);
+    -moz-transform: translate3d(0, 0, 1);
+    transform: translate3d(0, 0, 1);
+}
+
+
+.graph {
+    -webkit-position: sticky;
+    position: sticky;
+    top:0;
+    width: 100%;
+    margin: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    /*background-color: #8a8a8a;*/
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+
+.step {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    margin: 0 auto 2rem auto;
+    
+    /*background-color: #3b3b3b;*/
+
+}
+
+.step-text {
+    background-color: rgb(224, 224, 224);
+    position: absolute;
+    width: 100%;
+    top:0;
+    opacity: 80%;
+    border-radius: 0.5rem;
+
+}
+
+.intermezzo {
+	opacity:0;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+/*.step.is-active {
+    background-color: goldenrod;
+}*/
+
+.step p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2.1rem;
+    text-align: left;
+    margin:0;
+}
+
+.page-bg {
+	width:100%;
+	position:absolute;
+}
+
+.page {
+    width:100%;
+	position:absolute;
+	transition: all;
+	transition-duration: 1s;
+    opacity: 0;
+}
+
+/* SCROLLYTELLING RESPONSIVE */
+
+@media screen and (max-width: 719px) {
+    .scroll-article {
+        width:90%;
+        margin:auto;
+    }
+
+    .step {
+        width: 100%;
+    }
+
+    .step p {
+        font-size:1.1rem;
+        line-height: 1.8rem;
+    }
+
+
+}
+</style>
+</head>
+<body class="post-template post-template-single-container post-template-single-container-php single single-post postid-85 single-format-standard elementor-default elementor-kit-10">
+<section id="scrolly-2">
+    <figure class="graph" style="height: 722px; top: 0px;">
+<!-- start sequence 1-2 -->
+    <div class="page-bg">
+        <div class="page-0">
+            <div id="Peta-box" class="ai2html">
+            
+            <div id="Peta-extra-small-BG" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+                <div style="padding: 0 0 218.75% 0;"></div>
+                <img id="Peta-extra-small-BG-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 1_2/Peta Jakarta.png">
+                <div id="g-ai14-8" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:14.8284%;margin-top:-29.6px;left:67.1103%;margin-left:-151.5px;width:151px;">
+                    <h2>Hutan Kota di DKI Jakarta</h2>
+                </div>
+            </div>
+            
+            <div id="Peta-small-BG" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+                <div style="padding: 0 0 156.8627% 0;"></div>
+                <img id="Peta-small-BG-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 1_2/Peta-Jakarta.png">
+                <div id="g-ai14-8" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:9.8284%;margin-top:-29.6px;left:66.1103%;margin-left:-151.5px;width:151px;">
+                    <h2>Hutan Kota di DKI Jakarta</h2>
+                </div>
+            </div>
+            
+            <div id="Peta-medium-BG" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+                <div style="padding: 0 0 148.4058% 0;"></div>
+                <img id="Peta-medium-BG-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 1_2/Peta Jakarta.png">
+                <div id="g-ai14-8" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:8.8284%;margin-top:-29.6px;left:63.1103%;margin-left:-151.5px;width:151px;">
+                    <h2>Hutan Kota di DKI Jakarta</h2>
+                </div>
+            </div>
+            
+            <div id="Peta-large-BG" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+                <div style="padding: 0 0 100% 0;"></div>
+                <img id="Peta-large-BG-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 1_2/Peta-Jakarta.png">
+                <div id="g-ai14-8" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:1.8284%;margin-top:-29.6px;left:55.1103%;margin-left:-151.5px;width:278px;">
+                    <h2>Hutan Kota di DKI Jakarta</h2>
+                </div>
+            </div>
+            
+            <div id="Peta-extra-large-BG" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+                <div style="padding: 0 0 56.25% 0;"></div>
+                <img id="Peta-extra-large-BG-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 1_2/Peta Jakarta.png">
+                <div id="g-ai14-8" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:50.8284%;margin-top:-29.6px;left:11.1103%;margin-left:-151.5px;width:303px;">
+                    <h2>Hutan Kota di DKI Jakarta</h2>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="page page-1" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-1" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-1-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 1_2/Area-Hutan-Kota.png">
+        </div>
+        
+        <div id="Peta-small-1" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-1-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 1_2/Area-Peta.png">
+        </div>
+        
+        <div id="Peta-medium-1" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-1-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 1_2/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-large-1" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-1-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 1_2/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-extra-large-1" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-1-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 1_2/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 1-2 -->
+<!-- start sequence 3 -->
+    <div class="page page-2" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 3/Peta-Jakut-1.png">
+        </div>
+
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 3/Peta-Jakut-1.png">
+        </div>
+
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 3/Peta Jakut 1.png">
+        </div>
+
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 3/Peta Jakut.png">
+        </div>
+
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 3/Peta Jakut.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-3" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+            
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 3/Jakarta-Utara.png">
+        </div>
+            
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 3/Jakarta Utara.png">
+        </div>
+            
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 3/Jakarta Utara.png">
+        </div>
+            
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 3/Jakarta Utara.png">   
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 3/Jakarta Utara.png">
+        </div>
+
+        </div>
+    </div>
+    
+    <div class="page page-4" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+            
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 3/Area-Hutan.png">
+        </div>
+                
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 3/Area-Hutan.png">
+        </div>
+                
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 3/Area Hutan.png">
+        </div>
+                
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 3/Area Hutan.png">
+        </div>
+                
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 3/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-5" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 3/Copy.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 3/Copy.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 3/Copy.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 3/Copy.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 3/Copy.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 3 -->
+<!-- start squence 4 -->
+    <div class="page page-6" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 4/Peta-Jakut-2.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 4/Peta-Jakut-2.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 4/Peta Jakut 2.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 4/Peta Jaktim 1.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 4/Peta Jaktim1.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-7" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 4/Jakarta-Utara.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 4/Jakarta Utara.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 4/Jakarta Utara.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 4/Jakarta Timur.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 4/Jakarta Timur.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-8" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 4/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 4/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 4/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 4/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 4/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-9" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 4/Copy.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 4/Copy.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 4/Copy.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 4/Copy.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 4/Copy.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 4 -->
+<!-- start squence 5 -->
+    <div class="page page-10" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 5/Peta-Jaktim.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 5/Peta-Jaktim.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 5/Peta Jaktim.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 5/Peta Jaktim 2.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 5/Peta Jaktim2.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-11" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 5/Jakarta-Timur.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 5/Jakarta-Timur.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 5/Jakarta Timur.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 5/Jakarta Timur.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 5/Jakarta Timur.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-12" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 5/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 5/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 5/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 5/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 5/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-13" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 5/Copy.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 5/Copy.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 5/Copy.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 5/Copy.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 5/Copy.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 5 -->
+<!-- start squence 6 -->
+    <div class="page page-14" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 6/Peta-Jaksel.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 6/Peta-Jaksel.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 6/Peta Jaksel.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 6/Peta Jaksel.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 6/Peta Jaksel.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-15" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 6/Jakarta-Selatan.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 6/Jakarta-Selatan.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 6/Jakarta Selatan.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 6/Jakarta Selatan.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 6/Jakarta Selatan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-16" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 6/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 6/Area-Peta.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 6/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 6/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 6/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-17" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 6/Copy.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 6/Copy.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 6/Copy.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 6/Copy.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 6/Copy.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 6 -->
+<!-- start squence 7 -->
+    <div class="page page-18" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 7/Peta-Jakbar.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 7/Peta-Jakbar.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 7/Peta Jakbar.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 7/Peta Jakbar.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 7/Peta Jakbar.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-19" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 7/Jakarta-Barat.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 7/Jakarta-Barat.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 7/Jakarta Barat.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 7/Jakarta Barat.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 7/Jakarta Barat.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-20" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 7/Area-Hutan.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 7/Area-Peta.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 7/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 7/Area Hutan.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 7/Area Hutan.png">
+        </div>
+
+        </div>
+    </div>
+
+    <div class="page page-21" style="opacity: 0;">
+        <div id="Peta-box" class="ai2html">
+        
+        <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+            <div style="padding: 0 0 218.75% 0;"></div>
+            <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 7/Copy.png">
+        </div>
+        
+        <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+            <div style="padding: 0 0 156.8627% 0;"></div>
+            <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 7/Copy.png">
+        </div>
+        
+        <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+            <div style="padding: 0 0 148.4058% 0;"></div>
+            <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 7/Copy.png">
+        </div>
+        
+        <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+            <div style="padding: 0 0 100% 0;"></div>
+            <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 7/Copy.png">
+        </div>
+        
+        <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+            <div style="padding: 0 0 56.25% 0;"></div>
+            <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 7/Copy.png">
+        </div>
+
+        </div>
+    </div>
+<!-- end sequence 7 -->
+<!-- legenda -->
+<div class="page page-legenda" style="opacity: 0;">
+    <div id="Peta-box" class="ai2html">
+    
+    <div id="Peta-extra-small-3" class="g-artboard" style="max-width: 509px;max-height: 1113px" data-aspect-ratio="0.457" data-min-width="0" data-max-width="509">
+        <div style="padding: 0 0 218.75% 0;"></div>
+        <img id="Peta-extra-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/640x1400/Sequence 3/Legenda.png">
+    </div>
+    
+    <div id="Peta-small-3" class="g-artboard" style="min-width: 510px;max-width: 689px;max-height: 1081px" data-aspect-ratio="0.638" data-min-width="510" data-max-width="689">
+        <div style="padding: 0 0 156.8627% 0;"></div>
+        <img id="Peta-small-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1020x1600/Sequence 3/Legenda.png">
+    </div>
+    
+    <div id="Peta-medium-3" class="g-artboard" style="min-width: 690px;max-width: 919px;max-height: 1364px" data-aspect-ratio="0.674" data-min-width="690" data-max-width="919">
+        <div style="padding: 0 0 148.4058% 0;"></div>
+        <img id="Peta-medium-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1380x2048/Sequence 3/Legenda.png">
+    </div>
+    
+    <div id="Peta-large-3" class="g-artboard" style="min-width: 920px;max-width: 1399px;max-height: 1399px" data-aspect-ratio="1" data-min-width="920" data-max-width="1399">
+        <div style="padding: 0 0 100% 0;"></div>
+        <img id="Peta-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/1840x1840/Sequence 3/Legenda.png">
+    </div>
+    
+    <div id="Peta-extra-large-3" class="g-artboard" style="min-width: 1400px;" data-aspect-ratio="1.778" data-min-width="1400">
+        <div style="padding: 0 0 56.25% 0;"></div>
+        <img id="Peta-extra-large-3-img" class="g-aiImg" alt="" src="./Scrolling Stories/2800x1576/Sequence 3/Legenda.png">
+    </div>
+
+    </div>
+</div>
+<!-- legenda end -->
+    </figure>
+    <article class="scroll-article">
+        <div class="step" data-step="0" data-scrollama-index="0" style="height: 722px;">
+            <div class="step-text" id="st-0">
+                <p>Ada 31 hutan kota di DKI Jakarta. Luasnya mencapai 176,12 Ha atau setara 248 lapangan sepak bola. Pada tahun 2021, hutan kota di Ibu Kota menyerap 500,49 ton CO2 ekuivalen.</p>
+            </div>
+        </div>
+        <div class="step" data-step="1" data-scrollama-index="1" style="height: 722px;">
+            <div class="step-text" id="st-1">
+                <p>Di tahun yang sama, emisi kendaraan di DKI mencapai 11,84 juta ton CO2 ekuivalen. Artinya, hutan kota di seluruh DKI hanya mampu menyerap 0,004% emisi kendaraan yang kita hasilkan.</p>
+            </div>
+        </div>
+        <div class="step" data-step="2" data-scrollama-index="2" style="height: 722px;">
+            <div class="step-text" id="st-2">
+            </div>
+        </div>
+        <div class="step is-active" data-step="3" data-scrollama-index="3" style="height: 722px;">
+            <div class="step-text" id="st-3">
+            </div>
+        </div>
+        <div class="step is-active" data-step="4" data-scrollama-index="4" style="height: 722px;">
+            <div class="step-text" id="st-4">
+            </div>
+        </div>
+        <div class="step is-active" data-step="5" data-scrollama-index="5" style="height: 722px;">
+            <div class="step-text" id="st-5">
+            </div>
+        </div>
+        <div class="step is-active" data-step="6" data-scrollama-index="6" style="height: 722px;">
+            <div class="step-text" id="st-6">
+            </div>
+        </div>
+        <div class="step is-active" data-step="7" data-scrollama-index="7" style="height: 722px;">
+            <div class="step-text" id="st-7">
+            </div>
+        </div>
+        <div class="step is-active" data-step="8" data-scrollama-index="8" style="height: 722px;">
+            <div class="step-text" id="st-8">
+            </div>
+        </div>
+        <div class="step is-active" data-step="9" data-scrollama-index="9" style="height: 722px;">
+            <div class="step-text" id="st-9">
+            </div>
+        </div>
+        <div class="step is-active" data-step="10" data-scrollama-index="10" style="height: 722px;">
+            <div class="step-text" id="st-10">
+            </div>
+        </div>
+        <div class="step is-active" data-step="11" data-scrollama-index="11" style="height: 722px;">
+            <div class="step-text" id="st-11">
+            </div>
+        </div>
+    </article>
+</section>
+
+<script src="./js/main.js" type="text/javascript"></script>
+</body>
+</html>
